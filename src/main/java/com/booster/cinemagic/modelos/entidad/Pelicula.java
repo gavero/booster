@@ -1,4 +1,4 @@
-package com.booster.cinemagic.models.entities;
+package com.booster.cinemagic.modelos.entidad;
 
 
 import javax.persistence.*;
