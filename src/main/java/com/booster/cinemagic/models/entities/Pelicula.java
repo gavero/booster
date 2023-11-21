@@ -19,6 +19,14 @@ public class Pelicula {
     public Pelicula() {
     }
 
+    public Pelicula(int id, String titulo, int duracion, String genero, String clasificacion) {
+        this.id = id;
+        this.titulo = titulo;
+        this.duracion = duracion;
+        this.genero = genero;
+        this.clasificacion = clasificacion;
+    }
+
     public int getId() {
         return id;
     }
