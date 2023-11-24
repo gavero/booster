@@ -8,11 +8,12 @@ public interface IPeliculaServicio {
 
     List<Pelicula> obtenerPeliculas();
 
+   //Pelicula obtenerPeliculaPorId(Integer id) throws NotFoundCustomException;
     Pelicula obtenerPeliculaPorId(Integer id);
 
     Pelicula agregarPelicula(Pelicula pelicula);
 
     Pelicula modificarPelicula(Integer id, Pelicula pelicula);
 
-    void eliminarPelicula(Integer id);
+    boolean eliminarPelicula(Integer id);
 }

@@ -3,6 +3,7 @@ package com.booster.cinemagic.servicio;
 import com.booster.cinemagic.modelos.entidad.Pelicula;
 import com.booster.cinemagic.repositorio.IPeliculaRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -21,8 +22,9 @@ public class PeliculaServicio implements IPeliculaServicio {
         return listaPeliculas;
     }
 
+
     @Override
-    public Pelicula obtenerPeliculaPorId(Integer id) {
+    public Pelicula obtenerPeliculaPorId(Integer id){
         Pelicula pelicula = new Pelicula();
         pelicula = peliculaRepositorio.findById(id).orElse(null);
         return pelicula;
@@ -32,6 +34,7 @@ public class PeliculaServicio implements IPeliculaServicio {
     public Pelicula agregarPelicula(Pelicula pelicula) {
         return peliculaRepositorio.save(pelicula);
     }
+
 
     @Override
     public Pelicula modificarPelicula(Integer id, Pelicula pelicula) {
@@ -49,8 +52,16 @@ public class PeliculaServicio implements IPeliculaServicio {
     }
 
     @Override
-    public void eliminarPelicula(Integer id) {
-        peliculaRepositorio.deleteById(id);
+    public boolean eliminarPelicula(Integer id) {
+        boolean esEliminado = true;
+        try {
+            peliculaRepositorio.deleteById(id);
+        }catch (EmptyResultDataAccessException e) {
+            System.out.println(e.getMessage());
+            esEliminado = false;
+        }
+
+        return esEliminado;
     }
 
 
