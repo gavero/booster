@@ -4,41 +4,46 @@ package com.booster.cinemagic.modelos.entidad;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
-
 @Entity
-@Table(name = "pelicula")
-public class Pelicula {
+@Table(name = "PELICULA")
+public class PeliculaEntidad {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Column(name = "ID_PELICULA", nullable = false)
+    private Integer id;
 
     @NotNull(message = "El titulo no debe ser null")
     @NotEmpty(message = "El titulo no debe ser vacio")
     @Size(max = 250, message = "El titulo es muy extenso")
+    @Column(name = "TITULO", nullable = false, length = 250)
     private String titulo;
 
     @Min(value = 60, message = "La duracion debe ser mayor a 60 mins")
     @NotNull(message = "La duracion no debe ser null")
+    @Column(name = "DURACION", nullable = false)
     private int duracion;
+
     @NotNull(message = "El genero no debe ser null")
     @NotEmpty(message = "El genero no debe ser vacio")
+    @Column(name = "GENERO", nullable = false, length = 250)
     private String genero;
 
     @NotNull(message = "La clasificacion no debe ser null")
     @NotEmpty(message = "La clasificacion no debe ser vacia")
     @Size(min = 1)
     @Pattern(regexp = "[ABCD]", message = "La clasificacion solo puede ser A,B,C,D")
+    @Column(name = "CLASIFICACION", nullable = false, length = 250)
     private String clasificacion;
 
-    public Pelicula() {
+    public PeliculaEntidad() {
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

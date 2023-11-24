@@ -17,9 +17,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestControllerAdvice
-public class ControllerAdvice {
+public class AdviceControlador {
 
-    private static  final Logger LOG = LoggerFactory.getLogger(ControllerAdvice.class.getName());
+    private static  final Logger LOG = LoggerFactory.getLogger(AdviceControlador.class.getName());
 
      @ExceptionHandler(value = DatosInvalidosExcepcion.class)
     public ResponseEntity<ErrorModelo> excepcionSolicitud(DatosInvalidosExcepcion excepcion){

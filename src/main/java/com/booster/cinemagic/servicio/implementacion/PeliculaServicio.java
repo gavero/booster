@@ -1,7 +1,8 @@
-package com.booster.cinemagic.servicio;
+package com.booster.cinemagic.servicio.implementacion;
 
-import com.booster.cinemagic.modelos.entidad.Pelicula;
+import com.booster.cinemagic.modelos.entidad.PeliculaEntidad;
 import com.booster.cinemagic.repositorio.IPeliculaRepositorio;
+import com.booster.cinemagic.servicio.IPeliculaServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
@@ -16,29 +17,29 @@ public class PeliculaServicio implements IPeliculaServicio {
     IPeliculaRepositorio peliculaRepositorio;
 
     @Override
-    public List<Pelicula> obtenerPeliculas() {
-        List<Pelicula> listaPeliculas = new ArrayList<>();
+    public List<PeliculaEntidad> obtenerPeliculas() {
+        List<PeliculaEntidad> listaPeliculas = new ArrayList<>();
         listaPeliculas = peliculaRepositorio.findAll();
         return listaPeliculas;
     }
 
 
     @Override
-    public Pelicula obtenerPeliculaPorId(Integer id){
-        Pelicula pelicula = new Pelicula();
+    public PeliculaEntidad obtenerPeliculaPorId(Integer id){
+        PeliculaEntidad pelicula = new PeliculaEntidad();
         pelicula = peliculaRepositorio.findById(id).orElse(null);
         return pelicula;
     }
 
     @Override
-    public Pelicula agregarPelicula(Pelicula pelicula) {
+    public PeliculaEntidad agregarPelicula(PeliculaEntidad pelicula) {
         return peliculaRepositorio.save(pelicula);
     }
 
 
     @Override
-    public Pelicula modificarPelicula(Integer id, Pelicula pelicula) {
-        Pelicula existePelicula = obtenerPeliculaPorId(id);
+    public PeliculaEntidad modificarPelicula(Integer id, PeliculaEntidad pelicula) {
+        PeliculaEntidad existePelicula = obtenerPeliculaPorId(id);
 
         if (existePelicula != null) {
             existePelicula.setTitulo(pelicula.getTitulo());

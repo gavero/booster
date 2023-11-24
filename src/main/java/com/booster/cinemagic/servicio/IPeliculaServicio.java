@@ -1,19 +1,19 @@
 package com.booster.cinemagic.servicio;
 
-import com.booster.cinemagic.modelos.entidad.Pelicula;
+import com.booster.cinemagic.modelos.entidad.PeliculaEntidad;
 
 import java.util.List;
 
 public interface IPeliculaServicio {
 
-    List<Pelicula> obtenerPeliculas();
+    List<PeliculaEntidad> obtenerPeliculas();
 
    //Pelicula obtenerPeliculaPorId(Integer id) throws NotFoundCustomException;
-    Pelicula obtenerPeliculaPorId(Integer id);
+    PeliculaEntidad obtenerPeliculaPorId(Integer id);
 
-    Pelicula agregarPelicula(Pelicula pelicula);
+    PeliculaEntidad agregarPelicula(PeliculaEntidad pelicula);
 
-    Pelicula modificarPelicula(Integer id, Pelicula pelicula);
+    PeliculaEntidad modificarPelicula(Integer id, PeliculaEntidad pelicula);
 
     boolean eliminarPelicula(Integer id);
 }
