@@ -2,6 +2,7 @@ package com.booster.cinemagic.modelos.entidad;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 
 @Entity
@@ -11,9 +12,23 @@ public class Pelicula {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @NotNull(message = "El titulo no debe ser null")
+    @NotEmpty(message = "El titulo no debe ser vacio")
+    @Size(max = 250, message = "El titulo es muy extenso")
     private String titulo;
+
+    @Min(value = 60, message = "La duracion debe ser mayor a 60 mins")
+    @NotNull(message = "La duracion no debe ser null")
     private int duracion;
+    @NotNull(message = "El genero no debe ser null")
+    @NotEmpty(message = "El genero no debe ser vacio")
     private String genero;
+
+    @NotNull(message = "La clasificacion no debe ser null")
+    @NotEmpty(message = "La clasificacion no debe ser vacia")
+    @Size(min = 1)
+    @Pattern(regexp = "[ABCD]", message = "La clasificacion solo puede ser A,B,C,D")
     private String clasificacion;
 
     public Pelicula() {
