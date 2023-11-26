@@ -1,11 +1,22 @@
 package com.booster.cinemagic.controladores;
 
+import com.booster.cinemagic.entidadades.CarteleraEntidad;
+import com.booster.cinemagic.excepciones.DatosInvalidosExcepcion;
+import com.booster.cinemagic.excepciones.ElementoNoEncontradoExcepcion;
+import com.booster.cinemagic.excepciones.IdNoValidoExcepcion;
+import com.booster.cinemagic.servicios.ICarteleraServicio;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/cinemagic/v0/cartelera")
 public class CarteleraControlador {
-    /*
 
     @Autowired
     ICarteleraServicio carteleraServicio;
@@ -68,5 +79,4 @@ public class CarteleraControlador {
         return ResponseEntity.ok("Se eliminó la cartelera con id: "+ id);
     }
 
-     */
 }

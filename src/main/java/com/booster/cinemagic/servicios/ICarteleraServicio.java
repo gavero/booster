@@ -1,7 +1,11 @@
 package com.booster.cinemagic.servicios;
 
+import com.booster.cinemagic.entidadades.CarteleraEntidad;
+
+import java.util.List;
+
 public interface ICarteleraServicio {
-    /*
+
     List<CarteleraEntidad> obtenerCarteleras();
 
     CarteleraEntidad obtenerCarteleraPorId(Integer id);
@@ -12,5 +16,4 @@ public interface ICarteleraServicio {
 
     boolean eliminarCartelera(Integer id);
 
-     */
 }
