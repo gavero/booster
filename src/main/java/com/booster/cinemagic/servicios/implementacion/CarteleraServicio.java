@@ -1,12 +1,18 @@
 package com.booster.cinemagic.servicios.implementacion;
 
+import com.booster.cinemagic.entidadades.CarteleraEntidad;
+import com.booster.cinemagic.repositorios.ICarteleraRepositorio;
 import com.booster.cinemagic.servicios.ICarteleraServicio;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class CarteleraServicio implements ICarteleraServicio {
 
-    /*
     @Autowired
     ICarteleraRepositorio carteleraRepositorio;
 
@@ -60,6 +66,4 @@ public class CarteleraServicio implements ICarteleraServicio {
         }
         return esEliminado;
     }
-
-     */
 }

@@ -5,6 +5,8 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "SALA")
@@ -22,7 +24,7 @@ public class SalaEntidad {
     private String descripcion;
 
 
-    @Min(value = 1, message = "La duracion debe ser mayor a 0")
+    @Min(value = 1, message = "El total de asientos  debe ser mayor a 0")
     @NotNull(message = "El total de asientos no debe ser null")
     @Column(name = "TOTAL_ASIENTOS", nullable = false)
     private Integer totalAsientos;
@@ -80,4 +82,5 @@ public class SalaEntidad {
     public void setEstadoDesc(EstadoEntidad estadoDesc) {
         this.estadoDesc = estadoDesc;
     }
+
 }
